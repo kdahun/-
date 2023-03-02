@@ -2,10 +2,48 @@
 //
 
 #include <iostream>
+#include <string>
+
+using namespace std;
 
 int main()
-{
-    std::cout << "Hello World!\n";
+{ 
+	
+	int how_many = 0;
+	cin >> how_many;
+	for (int j = 0; j < how_many; j++) {
+		string s;
+		string a;
+		int count = 0;
+		int end = 0;
+		if (j == 0) {
+			cin.ignore();
+		}
+		getline(cin, s);
+		end = size(s);
+		for (int i : s) {
+			count++;
+			if (i == 32) {
+				for (int i = size(a) - 1; i >= 0; i--) {
+					cout << a[i];
+				}
+				cout << " ";
+				a = "";
+			}
+			else if (end == count) {
+				a = a + char(i);
+				for (int i = size(a) - 1; i >= 0; i--) {
+					cout << a[i];
+				}
+			}
+			else {
+				a = a + char(i);
+			}
+		}
+		if (j == how_many - 1) {
+			cout << endl;
+		}
+	}
 }
 
 // 프로그램 실행: <Ctrl+F5> 또는 [디버그] > [디버깅하지 않고 시작] 메뉴
